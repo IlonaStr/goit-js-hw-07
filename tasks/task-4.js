@@ -1,15 +1,13 @@
 'use strict';
 
-let counterValue = 0;
 const encounter = document.querySelector('#value');
 
 const increment = () => {
-counterValue +=1;
-encounter.textContent = counterValue;
+++encounter.textContent;
+
 }
 const decrement = () => {
-counterValue -=1;
-encounter.textContent = counterValue;
+--encounter.textContent;
 }
 
 encounter.previousElementSibling.addEventListener('click', decrement);

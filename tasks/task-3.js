@@ -19,10 +19,15 @@ const images = [
   ];
 
   const gallery = document.querySelector('#gallery');
-  // gallery.classList.add("picturesLayout");
+ 
+    function picturesLayout({url, alt}) {
+    const pics = `<li class = "pictures__item"><img src = ${url}, alt = ${alt} class = "pictures__img"></li>`;
+    return pics;
+    }
 
-  const picturesLayout = images.map(function({url, alt}) {
-    return `<li class = "pictures__item"><img src = ${url}, alt = ${alt} class = "pictures__img"></li>`;
-    })
+    const sketch = picturesLayoutList(images);
+    function picturesLayoutList(images) {
+      return images.reduce((sketch, el) => sketch += picturesLayout(el), '');
+    }
 
-    gallery.insertAdjacentHTML('afterbegin', `${picturesLayout}`);
+    gallery.innerHTML = sketch;
